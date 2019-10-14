@@ -19,12 +19,13 @@ def createNewRecord():
             city = input('Input patient\'s city: ').capitalize()
             country = input('Input patient\'s country: ').capitalize()
             
-            writer.writerow({'first_name': first_name, 'last_name': last_name,
-            'gender': gender, 'age': age, 'city': city, 'country':country})
-            print('data saved')
         except ValueError:
             print("The age must be an integer only")
             createNewRecord()  # call the function again
+        finally:
+            writer.writerow({'first_name': first_name, 'last_name': last_name,
+            'gender': gender, 'age': age, 'city': city, 'country':country})
+            print('data saved')
         
 def searchMedicalRecord():
     """ This function search for a medical record """
